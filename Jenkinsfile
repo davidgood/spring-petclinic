@@ -3,9 +3,9 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def mvn = tool 'maven';
+    def mvn = tool 'Default Maven';
     withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic"
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=PetClinic"
     }
   }
 }
