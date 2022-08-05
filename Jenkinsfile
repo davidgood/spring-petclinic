@@ -23,4 +23,4 @@ pipeline {
       cleanWs notFailBuild: true
     }
   }
-
+}
