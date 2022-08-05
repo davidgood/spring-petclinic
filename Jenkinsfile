@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('SCM') {
       steps {
-        checkout scm
-      }
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/davidgood/spring-petclinic.git']]])      }
     }
     stage('package') {
       steps {
