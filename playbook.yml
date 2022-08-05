@@ -1,0 +1,10 @@
+- hosts: petclinic_web
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: deploy petclinic
+      copy: src=/var/jenkins_home/workspace/petclinic/target/*.jar  dest=/var/www
+
+    - name: start petclinic
+      shell: java -jar /var/www/*.jar
