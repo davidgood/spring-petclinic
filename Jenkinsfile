@@ -8,8 +8,10 @@ pipeline {
     }
     stage('package') {
       steps {
-        def mvn = tool 'Default Maven';
-        sh "${mvn}/bin/mvn clean package"
+        script {
+          def mvn = tool 'Default Maven';
+          sh "${mvn}/bin/mvn clean package"
+        }
       }
     }
     stage('deploy') {
