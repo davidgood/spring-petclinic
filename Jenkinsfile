@@ -9,4 +9,9 @@ node {
   stage('deploy') {
     ansiblePlaybook become: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: 'playbook.yml'
   }
+  post {
+    always {
+      cleanWs notFailBuild: true
+    }
+  }
 }
