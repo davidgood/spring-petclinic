@@ -5,7 +5,7 @@ pipeline {
       steps {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/davidgood/spring-petclinic.git']]])      }
     }
-    stage('package') {
+    stage('gradle build') {
       steps {
         script {
           sh './gradlew build'
