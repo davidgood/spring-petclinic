@@ -8,8 +8,7 @@ pipeline {
     stage('package') {
       steps {
         script {
-          def mvn = tool 'Default Maven';
-          sh "${mvn}/bin/mvn package"
+          sh './gradlew build -x check'
         }
       }
     }
@@ -24,4 +23,4 @@ pipeline {
       cleanWs notFailBuild: true
     }
   }
-}
+
