@@ -8,7 +8,7 @@ pipeline {
     stage('package') {
       steps {
         script {
-          sh './gradlew build -x check'
+          sh './gradlew build'
         }
       }
     }
