@@ -1,4 +1,8 @@
-node {
+pipeline {
+  agent any
+  options {
+    skipDefaultCheckout(true)
+  }
   stage('SCM') {
     checkout scm
   }
