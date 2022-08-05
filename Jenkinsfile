@@ -10,7 +10,7 @@ pipeline {
       steps {
         script {
           def mvn = tool 'Default Maven';
-          sh "${mvn}/bin/mvn clean package"
+          sh "${mvn}/bin/mvn package"
         }
       }
     }
