@@ -13,4 +13,6 @@
       copy: src=/var/jenkins_home/workspace/petclinic/build/libs/spring-petclinic-2.6.0.jar dest=/var/www/petclinic.jar
 
     - name: start petclinic
-      shell: "service petclinic start"
+      async: 2
+      poll: 0
+      shell: java -jar /var/www/petclinic.jar &
