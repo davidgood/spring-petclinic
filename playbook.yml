@@ -3,12 +3,14 @@
   become_user: root
 
   tasks:
-    - name: deploy petclinic
-      copy: src=/var/jenkins_home/workspace/petclinic/build/libs/spring-petclinic-2.6.0.jar dest=/var/www/petclinic.jar
     - name: create www dir
       file:
         path: /var/www
         state: directory
         mode: 0775
+        
+    - name: deploy petclinic
+      copy: src=/var/jenkins_home/workspace/petclinic/build/libs/spring-petclinic-2.6.0.jar dest=/var/www/petclinic.jar
+
     - name: start petclinic
       shell: java -jar /var/www/*.jar
